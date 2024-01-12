@@ -41,9 +41,7 @@ module "vpc" {
   }
 }
 
-variable "instance_type" {
-  type = string
-}
+
 
 locals {
   project_name = "Hahahaha"
@@ -56,8 +54,4 @@ resource "aws_instance" "my_server" {
     Name = "MyServer-${local.project_name}"
   }
 
-}
-
-output "instance_ip_address" {
-  value = aws_instance.my_server.public_ip
 }
