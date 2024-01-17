@@ -45,6 +45,9 @@ resource "aws_launch_configuration" "example" {
 echo "Hello, World" > index.xhtml
 nohup busybox httpd -f -p ${var.server_port} &
 EOF
+  lifecycle {
+    create_before_destroy = true
+  }
 }
 
 resource "aws_autoscaling_group" "example" {
