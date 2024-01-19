@@ -17,14 +17,10 @@ terraform {
 
 provider "aws" {
   region                   = "us-east-1"
-  shared_credentials_files = ["~/.aws/credentials"]
-  shared_config_files      = ["~/.aws/config"]
 }
 
 provider "aws" {
   region                   = "eu-west-1"
-  shared_credentials_files = ["~/.aws/credentials"]
-  shared_config_files      = ["~/.aws/config"]
   alias                    = "eu"
 }
 
