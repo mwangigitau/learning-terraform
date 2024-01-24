@@ -36,4 +36,22 @@ resource "aws_instance" "my_server" {
     Name = "MyServer-${local.project_name}"
   }
 
+  provisioner "local-exec" {
+    working_dir = "~"
+    command = "echo ${self.public_ip} >> public_ip.txt"
+  }
+
+  provisioner "remote-exec"{
+    # Can use either scripts or inline, never both
+    inline = [ 
+      "yum update -y",
+      "hostname",
+      "whoami"
+     ]
+    script = "~/.scripts/setup.sh"
+  }
+
+  provisioner "file" {
+    destination = ""
+  }
 }
