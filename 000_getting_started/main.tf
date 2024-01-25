@@ -49,7 +49,7 @@ resource "aws_instance" "my_server" {
       "hostname",
       "whoami"
      ]
-    script = "~/.scripts/setup.sh"
+    # script = "~/.scripts/setup.sh"
   }
 
   provisioner "file" {
